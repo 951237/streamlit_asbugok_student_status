@@ -122,8 +122,8 @@ with left:
 
 	st.plotly_chart(fig_total_student)
 
+st.write('### 남녀 비율 그래프')
 with right:
-    st.write('### 남녀 비율 그래프')
 	# pie graph
 	labels = 'Boy', 'Girl'
 	man_ratio = (total_man / total_student) * 100
