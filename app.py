@@ -1,6 +1,7 @@
 import pandas as pd
 import plotly.express as px
 import streamlit as st
+import matplotlib.pyplot as plt
 
 # 할일
 # TODO:파일의 선택하기
@@ -117,3 +118,16 @@ fig_total_student = px.bar(
 )
 
 st.plotly_chart(fig_total_student)
+
+# pie graph
+labels = '남', '여'
+man_ratio = (total_man / total_student) * 100
+woman_ratio = (total_woman / total_student) * 100
+
+sizes = [man_ratio, woman_ratio]
+
+fig1, ax1 = plt.subplots()
+ax1.pie(sizes, explode=explode, labels=labels, autopct='%1.1f%%', shadow=True, startangle=90)
+ax1.axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle.
+
+st.pyplot(fig1)
