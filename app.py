@@ -120,7 +120,7 @@ fig_total_student = px.bar(
 st.plotly_chart(fig_total_student)
 
 # pie graph
-labels = '남', '여'
+labels = 'Boy', 'Girl'
 man_ratio = (total_man / total_student) * 100
 woman_ratio = (total_woman / total_student) * 100
 
