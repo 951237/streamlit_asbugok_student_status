@@ -116,7 +116,6 @@ with left:
 		x = '합계',
 		y = total_student_line.index,
 		orientation='h',
-		title = "<b>Total Student Line</b>",
 		color_discrete_sequence=["#0083B8"] * len(total_student_line),
 		template="plotly_white"
 	)
