@@ -73,8 +73,8 @@ df_selection = df.query(
 )
 
 # --- 메인 페이지 ---
+st.write("### 22.8.15 현재")
 st.title(":bar_chart: 안산부곡초 재적인원 현황판")
-st.header("22.8.15 현재")
 
 # 화면 타이틀
 st.markdown("##")		# 마크다운 문법 가능
