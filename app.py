@@ -99,10 +99,11 @@ with right_column:
     
 st.markdown("---")
 
-left, right = st.columns(2)
+left, right = st.columns([3,2])
 
 with left:
 	# 학년 인원 그래프로 나타내기 
+	left.write('학년별 인원')
 
 	# 학년별로 그룹지어서 전체 합계 요약
 	total_student_line = (
@@ -122,8 +123,8 @@ with left:
 
 	st.plotly_chart(fig_total_student)
 
-st.write('### 남녀 비율 그래프')
 with right:
+	right.write('### 남녀 비율 그래프')
 	# pie graph
 	labels = 'Boy', 'Girl'
 	man_ratio = (total_man / total_student) * 100
