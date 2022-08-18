@@ -99,35 +99,39 @@ with right_column:
     
 st.markdown("---")
 
-# 학년 인원 그래프로 나타내기 
+left, right = st.columns(2)
 
-# 학년별로 그룹지어서 전체 합계 요약
-total_student_line = (
-    df_selection.groupby(by=['학년']).sum()[['합계']].sort_values(by="합계")
-)
+with left:
+	# 학년 인원 그래프로 나타내기 
 
-# 수평 바그래프
-fig_total_student = px.bar(
-	total_student_line,
-	x = '합계',
-	y = total_student_line.index,
-	orientation='h',
-	title = "<b>Total Student Line</b>",
-	color_discrete_sequence=["#0083B8"] * len(total_student_line),
-	template="plotly_white"
-)
+	# 학년별로 그룹지어서 전체 합계 요약
+	total_student_line = (
+		df_selection.groupby(by=['학년']).sum()[['합계']].sort_values(by="합계")
+	)
 
-st.plotly_chart(fig_total_student)
+	# 수평 바그래프
+	fig_total_student = px.bar(
+		total_student_line,
+		x = '합계',
+		y = total_student_line.index,
+		orientation='h',
+		title = "<b>Total Student Line</b>",
+		color_discrete_sequence=["#0083B8"] * len(total_student_line),
+		template="plotly_white"
+	)
 
-# pie graph
-labels = 'Boy', 'Girl'
-man_ratio = (total_man / total_student) * 100
-woman_ratio = (total_woman / total_student) * 100
+	st.plotly_chart(fig_total_student)
 
-sizes = [man_ratio, woman_ratio]
+with right:
+	# pie graph
+	labels = 'Boy', 'Girl'
+	man_ratio = (total_man / total_student) * 100
+	woman_ratio = (total_woman / total_student) * 100
 
-fig1, ax1 = plt.subplots()
-ax1.pie(sizes, labels=labels, autopct='%1.1f%%', shadow=True, startangle=90)
-ax1.axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle.
+	sizes = [man_ratio, woman_ratio]
 
-st.pyplot(fig1)
+	fig1, ax1 = plt.subplots()
+	ax1.pie(sizes, labels=labels, autopct='%1.1f%%', shadow=True, startangle=90)
+	ax1.axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle.
+
+	st.pyplot(fig1)
