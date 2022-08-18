@@ -18,7 +18,7 @@ st.set_page_config(
 # 데이터 파일 불러오기 및 전처리
 def get_excelfile():
 	df = pd.read_excel(
-		io = "/Users/mac/project/app_bugok_dashboard_student/data.xlsx",
+		io = "data.xlsx",
 		engine="openpyxl",
 		sheet_name="실시간 학생수",
 		skiprows=1,
