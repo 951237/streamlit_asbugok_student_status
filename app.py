@@ -63,15 +63,15 @@ st.sidebar.header("Please Filter Here:")	# 사이드바 헤더(제목)
 # 파일 선택하기 
 file_xlsxs = st.sidebar.selectbox(
 	"Select data file:",
-	options = lst_xlsx,
-	default = lst_xlsx[0]
+	options = lst_xlsx
 )
 
 # 학년 선택 
 # 형식 st.sidebar.multiselect("안내문구", 리스트)
 grade = st.sidebar.multiselect(
 	"Select the Grade:",
-	options = df['학년'].unique()
+	options = df['학년'].unique(),
+	default = df['학년'].unique()
 )
 
 # 학급 선택
