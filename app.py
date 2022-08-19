@@ -16,8 +16,9 @@ st.set_page_config(
     layout = "wide"							# 레이아웃
     )
 
+# 폴더내에 
 def read_xlsx_files():
-	path = "./"
+	path = "./data"
 	file_list = os.listdir(path)
 	lst_xlsx = [file for file in file_list if file.endswith(".xlsx")]
 	return lst_xlsx
