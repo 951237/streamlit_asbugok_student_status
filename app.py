@@ -107,17 +107,13 @@ total_student = int(df_selection['남'].sum() + df_selection['여'].sum())
 # 화면분할 - 4분할
 left_column, middle01_column, middle02_column, right_column = st.columns(4)
 with left_column:
-    st.subheader(f"전체 학급수:{total_class}학급")
-    # st.subheader(f"총 {total_class:,}학급")
+    st.subheader(f"전체 학급수 : {total_class}학급")
 with middle01_column:
-    st.subheader(f"남학생:{total_class}명")
-    # st.subheader(f"{total_man:,}명")
+    st.subheader(f"남학생 : {total_class}명")
 with middle02_column:
-    st.subheader(f"여학생:{total_class}명")
-    # st.subheader(f"{total_woman:,}명")
+    st.subheader(f"여학생 : {total_class}명")
 with right_column:
-    st.subheader(f"전체:{total_class}명")
-    # st.subheader(f"{total_student:,}명")
+    st.subheader(f"전체 : {total_class}명")
     
 st.markdown("---")
 
