@@ -28,7 +28,7 @@ def read_xlsx_files():
 # 데이터 파일 불러오기 및 전처리
 def get_excelfile(p_file):
 	df = pd.read_excel(
-		io = p_file,
+		io = f'./data/{p_file}',
 		engine="openpyxl",
 		sheet_name="실시간 학생수",
 		skiprows=1,
