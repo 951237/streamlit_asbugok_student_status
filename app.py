@@ -67,6 +67,8 @@ file_xlsxs = st.sidebar.selectbox(
 
 # 데이터프레임 만들기
 df = get_excelfile(file_xlsxs)	# 데이터 프레임 생성
+str_date = file_xlsxs.split()[0]
+str_now = f'{str_date[:2]}.{str_date[2:4]}.{str_date[4:]}'
 
 # 학년 선택 
 # 형식 st.sidebar.multiselect("안내문구", 리스트)
@@ -89,7 +91,7 @@ df_selection = df.query(
 )
 
 # --- 메인 페이지 ---
-st.write("### 22.8.15 현재")
+st.write(f"### {str_now} 현재")
 st.title(":bar_chart: 안산부곡초 재적인원 현황판")
 
 # 화면 타이틀
