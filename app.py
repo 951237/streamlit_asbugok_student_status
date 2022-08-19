@@ -67,7 +67,7 @@ file_xlsxs = st.sidebar.selectbox(
 
 # 데이터프레임 만들기
 df = get_excelfile(file_xlsxs)	# 데이터 프레임 생성
-str_date = file_xlsxs.split()[0]
+str_date = file_xlsxs.split('.')[0]
 str_now = f'{str_date[:2]}.{str_date[2:4]}.{str_date[4:]}'
 
 # 학년 선택 
