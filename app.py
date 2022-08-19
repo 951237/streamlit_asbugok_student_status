@@ -109,11 +109,11 @@ left_column, middle01_column, middle02_column, right_column = st.columns(4)
 with left_column:
     st.subheader(f"전체 학급수 : {total_class}학급")
 with middle01_column:
-    st.subheader(f"남학생 : {total_class}명")
+    st.subheader(f"남학생 : {total_man}명")
 with middle02_column:
-    st.subheader(f"여학생 : {total_class}명")
+    st.subheader(f"여학생 : {total_woman}명")
 with right_column:
-    st.subheader(f"전체 : {total_class}명")
+    st.subheader(f"전체 : {total_student}명")
     
 st.markdown("---")
 
