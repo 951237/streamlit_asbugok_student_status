@@ -1,3 +1,4 @@
+import os
 import pandas as pd
 import plotly.express as px
 import streamlit as st
@@ -14,6 +15,13 @@ st.set_page_config(
     page_icon = ":bar_chart:",				# 브라우저 파비콘
     layout = "wide"							# 레이아웃
     )
+
+def read_xlsx_files()
+	path = "./"
+	file_list = os.listdir(path)
+	lst_xlsx = [file for file in file_list if file.endswith(".xlsx")]
+	return lst_xlsx
+	
 
 
 # 데이터 파일 불러오기 및 전처리
@@ -45,12 +53,19 @@ def get_excelfile():
 	df['합계'] = df['남'] + df['여']
 	return df
 
+lst_xlsx = read_xlsx_files()
 df = get_excelfile()	# 데이터 프레임 생성
 
 # st.dataframe(df)
 
 # --- 사이드바 생성하기 ---
 st.sidebar.header("Please Filter Here:")	# 사이드바 헤더(제목)
+# 파일 선택하기 
+file_xlsxs = st.sidebar.selectbox(
+	"Select data file:",
+	options = lst_xlsx,
+	default = lst_xlsx[0]
+)
 
 # 학년 선택 
 # 형식 st.sidebar.multiselect("안내문구", 리스트)
