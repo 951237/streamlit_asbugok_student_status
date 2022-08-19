@@ -25,9 +25,9 @@ def read_xlsx_files():
 
 
 # 데이터 파일 불러오기 및 전처리
-def get_excelfile():
+def get_excelfile(p_file):
 	df = pd.read_excel(
-		io = "data.xlsx",
+		io = p_file,
 		engine="openpyxl",
 		sheet_name="실시간 학생수",
 		skiprows=1,
@@ -54,7 +54,6 @@ def get_excelfile():
 	return df
 
 lst_xlsx = read_xlsx_files()
-df = get_excelfile()	# 데이터 프레임 생성
 
 # st.dataframe(df)
 
@@ -65,6 +64,9 @@ file_xlsxs = st.sidebar.selectbox(
 	"Select data file:",
 	options = lst_xlsx
 )
+
+# 데이터프레임 만들기
+df = get_excelfile(file_xlsxs)	# 데이터 프레임 생성
 
 # 학년 선택 
 # 형식 st.sidebar.multiselect("안내문구", 리스트)
