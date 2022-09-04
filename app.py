@@ -42,14 +42,6 @@ def get_excelfile(p_file):
 	# 이덱스 리셋
 	df = df.reset_index(drop='INDEX')
 
-	# 학년에 칼럼에 학년 입력하기
-	df['학년'].loc[:5] = '1학년'
-	df['학년'].loc[5:9] = '2학년'
-	df['학년'].loc[9:14] = '3학년'
-	df['학년'].loc[14:20] = '4학년'
-	df['학년'].loc[20:25] = '5학년'
-	df['학년'].loc[25:] = '6학년'
-
 	# 인원 합계
 	df['합계'] = df['남'] + df['여']
 	return df
@@ -67,7 +59,7 @@ file_xlsxs = st.sidebar.selectbox(
 )
 
 # 데이터프레임 만들기
-df = get_excelfile(file_xlsxs)	# 데이터 프레임 생성
+df = get_excelfile(file_xlsxs).ffill()	# 데이터 프레임 생성
 str_date = file_xlsxs.split('.')[0]
 str_now = f'{str_date[:2]}.{str_date[2:4]}.{str_date[4:]}'
 
@@ -138,7 +130,7 @@ with left:
 		template="plotly_white"
 	)
 
-	st.plotly_chart(fig_total_student)
+	st.plotly_chart(fig_total_student, use_container_width=True)
 
 with right:
 	right.write('### 남녀 비율')
@@ -154,3 +146,20 @@ with right:
 	ax1.axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle.
 
 	st.pyplot(fig1)
+ 
+test = df_selection.groupby('학년').sum()
+
+test_t = test.T.reset_index()
+test_t.columns = ['성별', '1학년', '2학년', '3학년', '4학년', '5학년', '6학년']
+test_t = test_t.drop(index=2)
+
+col_list = list(test_t)
+col_list.remove('성별')
+test_t['합계'] = test_t[col_list].sum(axis=1)
+test_t = test_t[['성별','합계']]
+
+fig = px.pie(test_t, value='합계', names='성별')
+
+st.plotly_chart(fig, use_container_width=True)
+
+
