@@ -135,31 +135,20 @@ with left:
 with right:
 	right.write('### 남녀 비율')
 	# pie graph
-	labels = 'Boy', 'Girl'
-	man_ratio = (total_man / total_student) * 100
-	woman_ratio = (total_woman / total_student) * 100
-
-	sizes = [man_ratio, woman_ratio]
-
-	fig1, ax1 = plt.subplots()
-	ax1.pie(sizes, labels=labels, autopct='%1.1f%%', shadow=True, startangle=90)
-	ax1.axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle.
-
-	st.pyplot(fig1)
  
-test = df_selection.groupby('학년').sum()
+	test = df_selection.groupby('학년').sum()
 
-test_t = test.T.reset_index()
-test_t.columns = ['성별', '1학년', '2학년', '3학년', '4학년', '5학년', '6학년']
-test_t = test_t.drop(index=2)
+	test_t = test.T.reset_index()
+	test_t.columns = ['성별', '1학년', '2학년', '3학년', '4학년', '5학년', '6학년']
+	test_t = test_t.drop(index=2)
 
-col_list = list(test_t)
-col_list.remove('성별')
-test_t['합계'] = test_t[col_list].sum(axis=1)
-test_t = test_t[['성별','합계']]
+	col_list = list(test_t)
+	col_list.remove('성별')
+	test_t['합계'] = test_t[col_list].sum(axis=1)
+	test_t = test_t[['성별','합계']]
 
-fig = px.pie(test_t, value='합계', names='성별')
+	fig = px.pie(test_t, values='합계', names='성별')
 
-st.plotly_chart(fig, use_container_width=True)
+	st.plotly_chart(fig, use_container_width=True)
 
 
