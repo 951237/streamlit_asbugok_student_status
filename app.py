@@ -57,7 +57,7 @@ st.sidebar.header("Please Filter Here:")	# 사이드바 헤더(제목)
 file_xlsxs = st.sidebar.selectbox(
 	"Select data file:",
 	lst_xlsx,
-	index=lst_xlsx.index(default_ix)
+	index=lst_xlsx.index(default_ix)  # 마지막 값 선택
 )
 
 # 데이터프레임 만들기
@@ -152,16 +152,5 @@ with right:
 	fig = px.pie(test_t, values='합계', names='성별')
 
 	st.plotly_chart(fig, use_container_width=True)
-
-
-fig1 = px.bar(df_selection, 
-	x='지역', 
-	y='인원',
-	title="전보유형별 제출 현황",
-	color='전보유형',
-	text_auto=True   #그래프에 수치 나타내기
-	)
-fig1.update_layout(barmode='stack', xaxis={'categoryorder':'total descending'})  # 값 정렬
-st.plotly_chart(fig1, use_container_width=True)
 
 # 2줄 3칼럼 - 학년별 집계 보이기
