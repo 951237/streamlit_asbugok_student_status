@@ -47,6 +47,7 @@ def get_excelfile(p_file):
 	return df
 
 lst_xlsx = read_xlsx_files()
+default_ix = lst_xlsx[-1]
 
 # st.dataframe(df)
 
@@ -56,7 +57,7 @@ st.sidebar.header("Please Filter Here:")	# 사이드바 헤더(제목)
 file_xlsxs = st.sidebar.selectbox(
 	"Select data file:",
 	lst_xlsx,
-	index=lst_xlsx[-1]
+	index=default_ix
 )
 
 # 데이터프레임 만들기
