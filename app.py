@@ -55,7 +55,7 @@ st.sidebar.header("Please Filter Here:")	# 사이드바 헤더(제목)
 # 파일 선택하기 
 file_xlsxs = st.sidebar.selectbox(
 	"Select data file:",
-	option = lst_xlsx,
+	lst_xlsx,
 	index=lst_xlsx[-1]
 )
 
