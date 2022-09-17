@@ -47,6 +47,7 @@ def get_excelfile(p_file):
 	return df
 
 lst_xlsx = read_xlsx_files()
+lst_xlsx.sort()
 default_ix = lst_xlsx[-1]
 
 # st.dataframe(df)
