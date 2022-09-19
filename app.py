@@ -112,6 +112,8 @@ with right_column:
     
 st.markdown("---")
 
+
+# 첫번째 단락
 left, right = st.columns([3,2])
 
 with left:
@@ -154,4 +156,11 @@ with right:
 
 	st.plotly_chart(fig, use_container_width=True)
 
-# 2줄 3칼럼 - 학년별 집계 보이기
+# 2번째 단락 - 1, 2학년 현황
+# 3번째 단락 - 3, 4학년 현황
+# 4번째 단락 - 5, 6학년 현황
+# 5번째 단락 - 인구피라미드 (1학년부터 6학년까지)
+
+
+
+
