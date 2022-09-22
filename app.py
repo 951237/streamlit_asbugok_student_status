@@ -138,7 +138,7 @@ with left:
 	st.plotly_chart(fig_total_student, use_container_width=True)
 
 with right:
-	right.write('### 남녀 비율')
+	right.write('### 전교 남녀 비율')
 	# pie graph
  
 	test = df.groupby('학년').sum()
