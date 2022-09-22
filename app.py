@@ -157,6 +157,46 @@ with right:
 	st.plotly_chart(fig, use_container_width=True)
 
 # 2번째 단락 - 1, 2학년 현황
+left, right = st.columns()
+with left:
+	# 학년 인원 그래프로 나타내기 
+	left.write('### 1학년 인원')
+
+	# 학년별로 그룹지어서 전체 합계 요약
+	str_expr = "학년 == '1학년'"
+	df_1gr = df.query(str_expr)
+	df_1gr = df_1gr[['반','합계']]
+
+	# 수평 바그래프
+	fig_1gr_student = px.bar(
+		df_1gr,
+		x = '반',
+		y = '합계',
+		color_discrete_sequence=["#0083B8"] * len(df_1gr),
+		template="plotly_white"
+	)
+
+	st.plotly_chart(fig_1gr_student, use_container_width=True)
+ with right:
+	# 학년 인원 그래프로 나타내기 
+	right.write('### 2학년 인원')
+
+	# 학년별로 그룹지어서 전체 합계 요약
+	str_expr = "학년 == '2학년'"
+	df_2gr = df.query(str_expr)
+	df_2gr = df_2gr[['반','합계']]
+
+	# 수평 바그래프
+	fig_2gr_student = px.bar(
+		df_2gr,
+		x = '반',
+		y = '합계',
+		color_discrete_sequence=["#0083B8"] * len(df_2gr),
+		template="plotly_white"
+	)
+
+	st.plotly_chart(fig_2gr_student, use_container_width=True)
+    
 # 3번째 단락 - 3, 4학년 현황
 # 4번째 단락 - 5, 6학년 현황
 # 5번째 단락 - 인구피라미드 (1학년부터 6학년까지)
