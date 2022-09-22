@@ -181,7 +181,7 @@ with left_01:
 		y = '반',
 		x = ['남','여'],
 		orientation='h',
-		color = '반',
+		# color = '반',
 		template="plotly_white"
 	)
 	fig_1gr_student.update_layout(barmode='stack', xaxis={'categoryorder':'total descending'})  # 값 정렬
