@@ -179,7 +179,7 @@ with left_01:
 	fig_1gr_student = px.bar(
 		df_1gr,
 		y = '반',
-		x = '합계',
+		x = ['남','여'],
 		orientation='h',
 		color = '반',
 		template="plotly_white"
