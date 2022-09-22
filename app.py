@@ -179,7 +179,7 @@ with left_01:
 		x = '합계',
 		orientation='h',
 		color = '반',
-		color_discrete_sequence=["#0083B8"] * len(df_1gr),
+		# color_discrete_sequence=["#0083B8"] * len(df_1gr),
 		template="plotly_white"
 	)
 
