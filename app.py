@@ -191,8 +191,8 @@ with mid_01:
 	# 수평 바그래프
 	fig_2gr_student = px.bar(
 		df_2gr,
-		x = '반',
-		y = '합계',
+		y = '반',
+		x = '합계',
   		orientation='h',
 		color_discrete_sequence=["#0083B8"] * len(df_2gr),
 		template="plotly_white"
@@ -212,8 +212,8 @@ with right_01:
 	# 수평 바그래프
 	fig_3gr_student = px.bar(
 		df_3gr,
-		x = '반',
-		y = '합계',
+		y = '반',
+		x = '합계',
   		orientation='h',
 		color_discrete_sequence=["#0083B8"] * len(df_3gr),
 		template="plotly_white"
