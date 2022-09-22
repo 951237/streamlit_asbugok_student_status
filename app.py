@@ -170,7 +170,10 @@ with left_01:
 	# 학년 인원 그래프로 나타내기 
 	left_01.write('### 1학년 학급별 현황')
 
-	df_1gr = df_query('1학년')
+	# df_1gr = df_query('1학년')
+	str_expr = f"학년 == '1학년'"
+	df_1gr = df.query(str_expr)
+	df_1gr = df_1gr[['반','남','여','합계']]
 
 	# 수평 바그래프
 	fig_1gr_student = px.bar(
@@ -181,7 +184,7 @@ with left_01:
 		color = '반',
 		template="plotly_white"
 	)
-
+	fig_1gr_student.update_layout(barmode='stack', xaxis={'categoryorder':'total descending'})  # 값 정렬
 	st.plotly_chart(fig_1gr_student, use_container_width=True)
  
 with mid_01:
