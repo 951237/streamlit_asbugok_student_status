@@ -197,7 +197,7 @@ with mid_01:
 		y = '반',
 		x = ['남','여'],
   		orientation='h',
-		color = '반',
+		# color = '반',
 		template="plotly_white"
 	)
 
@@ -216,7 +216,7 @@ with right_01:
 		y = '반',
 		x = ['남','여'],
   		orientation='h',
-		color = '반',
+		# color = '반',
 		template="plotly_white"
 	)
 
@@ -237,7 +237,7 @@ with left_02:
 		y = '반',
 		x = ['남','여'],
 		orientation='h',
-		color = '반',
+		# color = '반',
 		template="plotly_white"
 	)
 
@@ -256,7 +256,7 @@ with mid_02:
 		y = '반',
 		x = ['남','여'],
   		orientation='h',
-		color = '반',
+		# color = '반',
 		template="plotly_white"
 	)
 
@@ -275,7 +275,7 @@ with right_02:
 		y = '반',
 		x = ['남','여'],
   		orientation='h',
-		color = '반',
+		# color = '반',
 		template="plotly_white"
 	)
 
