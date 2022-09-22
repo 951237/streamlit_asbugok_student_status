@@ -161,7 +161,7 @@ left_01, mid_01, right_01 = st.columns(3)
 
 def df_query(p_grade):
 	# 학년별로 그룹지어서 전체 합계 요약
-	str_expr = f"학년 == {p_grade}"
+	str_expr = f"학년 == '{p_grade}'"
 	df_gr = df.query(str_expr)
 	df_gr = df_gr[['반','합계']]
 	return df_gr
