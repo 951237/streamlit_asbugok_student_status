@@ -157,7 +157,7 @@ with right:
 	st.plotly_chart(fig, use_container_width=True)
 
 # 2번째 단락 - 1, 2학년 현황
-left_01, right_01 = st.columns()
+left_01, right_01 = st.columns(2)
 with left_01:
 	# 학년 인원 그래프로 나타내기 
 	left_01.write('### 1학년 인원')
