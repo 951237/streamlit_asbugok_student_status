@@ -157,10 +157,10 @@ with right:
 	st.plotly_chart(fig, use_container_width=True)
 
 # 2번째 단락 - 1, 2학년 현황
-left, right = st.columns()
-with left:
+left_01, right_01 = st.columns()
+with left_01:
 	# 학년 인원 그래프로 나타내기 
-	left.write('### 1학년 인원')
+	left_01.write('### 1학년 인원')
 
 	# 학년별로 그룹지어서 전체 합계 요약
 	str_expr = "학년 == '1학년'"
@@ -178,9 +178,9 @@ with left:
 
 	st.plotly_chart(fig_1gr_student, use_container_width=True)
  
-with right:
+with right_01:
 	# 학년 인원 그래프로 나타내기 
-	right.write('### 2학년 인원')
+	right_01.write('### 2학년 인원')
 
 	# 학년별로 그룹지어서 전체 합계 요약
 	str_expr = "학년 == '2학년'"
