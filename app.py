@@ -141,7 +141,7 @@ with right:
 	right.write('### 남녀 비율')
 	# pie graph
  
-	test = df_selection.groupby('학년').sum()
+	test = df.groupby('학년').sum()
 
 	test_t = test.T.reset_index()
 	test_t.columns = ['성별', '1학년', '2학년', '3학년', '4학년', '5학년', '6학년']
