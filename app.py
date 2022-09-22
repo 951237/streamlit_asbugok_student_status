@@ -168,7 +168,7 @@ left_01, mid_01, right_01 = st.columns(3)
 
 with left_01:
 	# 학년 인원 그래프로 나타내기 
-	left_01.write('### 1학년 인원')
+	left_01.write('### 1학년 학급별 현황')
 
 	df_1gr = df_query('1학년')
 
@@ -185,8 +185,8 @@ with left_01:
 	st.plotly_chart(fig_1gr_student, use_container_width=True)
  
 with mid_01:
-	# 학년 인원 그래프로 나타내기 
-	mid_01.write('### 2학년 인원')
+	# 학년 학급별 현황 그래프로 나타내기 
+	mid_01.write('### 2학년 학급별 현황')
 
 	# 학년별로 그룹지어서 전체 합계 요약
 	df_2gr = df_query('2학년')
@@ -204,8 +204,8 @@ with mid_01:
 	st.plotly_chart(fig_2gr_student, use_container_width=True)
  
 with right_01:
-	# 학년 인원 그래프로 나타내기 
-	right_01.write('### 3학년 인원')
+	# 학년 학급별 현황 그래프로 나타내기 
+	right_01.write('### 3학년 학급별 현황')
 
 	# 학년별로 그룹지어서 전체 합계 요약
 	df_3gr = df_query('3학년')
@@ -226,8 +226,8 @@ with right_01:
 left_02, mid_02, right_02 = st.columns(3)
 
 with left_02:
-	# 학년 인원 그래프로 나타내기 
-	left_02.write('### 4학년 인원')
+	# 학년 학급별 현황 그래프로 나타내기 
+	left_02.write('### 4학년 학급별 현황')
 
 	df_4gr = df_query('4학년')
 
@@ -244,8 +244,8 @@ with left_02:
 	st.plotly_chart(fig_4gr_student, use_container_width=True)
  
 with mid_02:
-	# 학년 인원 그래프로 나타내기 
-	mid_02.write('### 5학년 인원')
+	# 학년 학급별 현황 그래프로 나타내기 
+	mid_02.write('### 5학년 학급별 현황')
 
 	# 학년별로 그룹지어서 전체 합계 요약
 	df_5gr = df_query('5학년')
@@ -263,8 +263,8 @@ with mid_02:
 	st.plotly_chart(fig_5gr_student, use_container_width=True)
  
 with right_02:
-	# 학년 인원 그래프로 나타내기 
-	right_02.write('### 6학년 인원')
+	# 학년 학급별 현황 그래프로 나타내기 
+	right_02.write('### 6학년 학급별 현황')
 
 	# 학년별로 그룹지어서 전체 합계 요약
 	df_6gr = df_query('6학년')
