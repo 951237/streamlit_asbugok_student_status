@@ -160,7 +160,7 @@ def df_query(p_grade):
 	# 학년별로 그룹지어서 전체 합계 요약
 	str_expr = f"학년 == '{p_grade}'"
 	df_gr = df.query(str_expr)
-	df_gr = df_gr[['반','합계']]
+	df_gr = df_gr[['반','남','여']]
 	return df_gr
 
 # 2번째 단락 - 1, 2, 3학년 현황
@@ -170,10 +170,7 @@ with left_01:
 	# 학년 인원 그래프로 나타내기 
 	left_01.write('### 1학년 학급별 현황')
 
-	# df_1gr = df_query('1학년')
-	str_expr = f"학년 == '1학년'"
-	df_1gr = df.query(str_expr)
-	df_1gr = df_1gr[['반','남','여','합계']]
+	df_1gr = df_query('1학년')
 
 	# 수평 바그래프
 	fig_1gr_student = px.bar(
@@ -198,7 +195,7 @@ with mid_01:
 	fig_2gr_student = px.bar(
 		df_2gr,
 		y = '반',
-		x = '합계',
+		x = ['남','여'],
   		orientation='h',
 		color = '반',
 		template="plotly_white"
@@ -217,7 +214,7 @@ with right_01:
 	fig_3gr_student = px.bar(
 		df_3gr,
 		y = '반',
-		x = '합계',
+		x = ['남','여'],
   		orientation='h',
 		color = '반',
 		template="plotly_white"
@@ -238,7 +235,7 @@ with left_02:
 	fig_4gr_student = px.bar(
 		df_4gr,
 		y = '반',
-		x = '합계',
+		x = ['남','여'],
 		orientation='h',
 		color = '반',
 		template="plotly_white"
@@ -257,7 +254,7 @@ with mid_02:
 	fig_5gr_student = px.bar(
 		df_5gr,
 		y = '반',
-		x = '합계',
+		x = ['남','여'],
   		orientation='h',
 		color = '반',
 		template="plotly_white"
@@ -276,7 +273,7 @@ with right_02:
 	fig_6gr_student = px.bar(
 		df_6gr,
 		y = '반',
-		x = '합계',
+		x = ['남','여'],
   		orientation='h',
 		color = '반',
 		template="plotly_white"
