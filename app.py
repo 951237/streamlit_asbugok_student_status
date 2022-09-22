@@ -156,15 +156,15 @@ with right:
 
 	st.plotly_chart(fig, use_container_width=True)
 
-# 2번째 단락 - 1, 2학년 현황
-left_01, mid_01, right_01 = st.columns(3)
-
 def df_query(p_grade):
 	# 학년별로 그룹지어서 전체 합계 요약
 	str_expr = f"학년 == '{p_grade}'"
 	df_gr = df.query(str_expr)
 	df_gr = df_gr[['반','합계']]
 	return df_gr
+
+# 2번째 단락 - 1, 2, 3학년 현황
+left_01, mid_01, right_01 = st.columns(3)
 
 with left_01:
 	# 학년 인원 그래프로 나타내기 
@@ -221,8 +221,67 @@ with right_01:
 	)
 
 	st.plotly_chart(fig_3gr_student, use_container_width=True)
-# 3번째 단락 - 3, 4학년 현황
-# 4번째 단락 - 5, 6학년 현황
+
+# 2번째 단락 - 4, 5, 6학년 현황
+left_02, mid_02, right_02 = st.columns(3)
+
+with left_02:
+	# 학년 인원 그래프로 나타내기 
+	left_02.write('### 4학년 인원')
+
+	df_4gr = df_query('4학년')
+
+	# 수평 바그래프
+	fig_4gr_student = px.bar(
+		df_4gr,
+		y = '반',
+		x = '합계',
+		orientation='h',
+		color_discrete_sequence=["#0083B8"] * len(df_4gr),
+		template="plotly_white"
+	)
+
+	st.plotly_chart(fig_4gr_student, use_container_width=True)
+ 
+with mid_02:
+	# 학년 인원 그래프로 나타내기 
+	mid_02.write('### 5학년 인원')
+
+	# 학년별로 그룹지어서 전체 합계 요약
+	df_5gr = df_query('5학년')
+
+	# 수평 바그래프
+	fig_5gr_student = px.bar(
+		df_5gr,
+		y = '반',
+		x = '합계',
+  		orientation='h',
+		color_discrete_sequence=["#0083B8"] * len(df_5gr),
+		template="plotly_white"
+	)
+
+	st.plotly_chart(fig_5gr_student, use_container_width=True)
+ 
+with right_02:
+	# 학년 인원 그래프로 나타내기 
+	right_02.write('### 6학년 인원')
+
+	# 학년별로 그룹지어서 전체 합계 요약
+	df_6gr = df_query('6학년')
+
+	# 수평 바그래프
+	fig_6gr_student = px.bar(
+		df_6gr,
+		y = '반',
+		x = '합계',
+  		orientation='h',
+		color_discrete_sequence=["#0083B8"] * len(df_6gr),
+		template="plotly_white"
+	)
+
+	st.plotly_chart(fig_6gr_student, use_container_width=True)
+
+
 # 5번째 단락 - 인구피라미드 (1학년부터 6학년까지)
 
 
