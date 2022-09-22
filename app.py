@@ -158,14 +158,19 @@ with right:
 
 # 2번째 단락 - 1, 2학년 현황
 left_01, mid_01, right_01 = st.columns(3)
+
+def df_query(p_grade):
+	# 학년별로 그룹지어서 전체 합계 요약
+	str_expr = f"학년 == {p_grade}"
+	df_gr = df.query(str_expr)
+	df_gr = df_gr[['반','합계']]
+	return df_gr
+
 with left_01:
 	# 학년 인원 그래프로 나타내기 
 	left_01.write('### 1학년 인원')
 
-	# 학년별로 그룹지어서 전체 합계 요약
-	str_expr = "학년 == '1학년'"
-	df_1gr = df.query(str_expr)
-	df_1gr = df_1gr[['반','합계']]
+	df_1gr = df_query('1학년')
 
 	# 수평 바그래프
 	fig_1gr_student = px.bar(
@@ -184,9 +189,7 @@ with mid_01:
 	mid_01.write('### 2학년 인원')
 
 	# 학년별로 그룹지어서 전체 합계 요약
-	str_expr = "학년 == '2학년'"
-	df_2gr = df.query(str_expr)
-	df_2gr = df_2gr[['반','합계']]
+	df_2gr = df_query('2학년')
 
 	# 수평 바그래프
 	fig_2gr_student = px.bar(
@@ -205,9 +208,7 @@ with right_01:
 	right_01.write('### 3학년 인원')
 
 	# 학년별로 그룹지어서 전체 합계 요약
-	str_expr = "학년 == '3학년'"
-	df_3gr = df.query(str_expr)
-	df_3gr = df_3gr[['반','합계']]
+	df_3gr = df_query('3학년')
 
 	# 수평 바그래프
 	fig_3gr_student = px.bar(
