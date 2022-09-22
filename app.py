@@ -131,7 +131,7 @@ with left:
 		x = '합계',
 		y = total_student_line.index,
 		orientation='h',
-		color_discrete_sequence=px.colors.qualitative.Plotly,
+		color_discrete_sequence=px.colors.qualitative.Plotly * 6,
 		template="plotly_white"
 	)
 
