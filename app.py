@@ -177,7 +177,8 @@ with left:
 	)
 
 	st.plotly_chart(fig_1gr_student, use_container_width=True)
- with right:
+ 
+with right:
 	# 학년 인원 그래프로 나타내기 
 	right.write('### 2학년 인원')
 
