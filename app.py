@@ -131,7 +131,7 @@ with left:
 		x = '합계',
 		y = total_student_line.index,
 		orientation='h',
-		color_discrete_sequence=px.colors.qualitative.Plotly * 6,
+		color = total_student_line.index,
 		template="plotly_white"
 	)
 
@@ -179,7 +179,6 @@ with left_01:
 		x = '합계',
 		orientation='h',
 		color = '반',
-		# color_discrete_sequence=["#0083B8"] * len(df_1gr),
 		template="plotly_white"
 	)
 
@@ -198,7 +197,7 @@ with mid_01:
 		y = '반',
 		x = '합계',
   		orientation='h',
-		color_discrete_sequence=["#0083B8"] * len(df_2gr),
+		color = '반',
 		template="plotly_white"
 	)
 
@@ -217,7 +216,7 @@ with right_01:
 		y = '반',
 		x = '합계',
   		orientation='h',
-		color_discrete_sequence=["#0083B8"] * len(df_3gr),
+		color = '반',
 		template="plotly_white"
 	)
 
@@ -238,7 +237,7 @@ with left_02:
 		y = '반',
 		x = '합계',
 		orientation='h',
-		color_discrete_sequence=["#0083B8"] * len(df_4gr),
+		color = '반',
 		template="plotly_white"
 	)
 
@@ -257,7 +256,7 @@ with mid_02:
 		y = '반',
 		x = '합계',
   		orientation='h',
-		color_discrete_sequence=["#0083B8"] * len(df_5gr),
+		color = '반',
 		template="plotly_white"
 	)
 
@@ -276,7 +275,7 @@ with right_02:
 		y = '반',
 		x = '합계',
   		orientation='h',
-		color_discrete_sequence=["#0083B8"] * len(df_6gr),
+		color = '반',
 		template="plotly_white"
 	)
 
