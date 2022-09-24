@@ -213,7 +213,7 @@ with right_01:
 	# 학년 학급별 현황 그래프로 나타내기 
 	right_01.write('### 3학년 학급별 현황')
 
-make_plotly_chart('3학년')
+	make_plotly_chart('3학년')
 
 
 # 2번째 단락 - 4, 5, 6학년 현황
