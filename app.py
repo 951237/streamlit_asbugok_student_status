@@ -164,7 +164,7 @@ def df_query(p_grade):
 	return df_gr
 
 def make_plotly_chart(p_gr):
-	df_query = df_query(p_gr)
+	df_query = df_query(f'{p_gr}')
 
 	# 수평 바그래프
 	fig = px.bar(
