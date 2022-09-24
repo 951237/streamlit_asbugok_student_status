@@ -186,33 +186,16 @@ left_01, mid_01, right_01 = st.columns(3)
 with left_01:
 	# 학년 인원 그래프로 나타내기 
 	left_01.write('### 1학년 학급별 현황')
- 
 	make_plotly_chart('1학년')
- 
-	# df_1gr = df_query('1학년')
-
-	# # 수평 바그래프
-	# fig_1gr_student = px.bar(
-	# 	df_1gr,
-	# 	y = '반',
-	# 	x = ['남','여'],
-	# 	orientation='h',
-	# 	# color = '반',
-	# 	template="plotly_white"
-	# )
-	# fig_1gr_student.update_layout(barmode='stack', xaxis={'categoryorder':'total descending'})  # 값 정렬
-	# st.plotly_chart(fig_1gr_student, use_container_width=True)
  
 with mid_01:
 	# 학년 학급별 현황 그래프로 나타내기 
 	mid_01.write('### 2학년 학급별 현황')
-
 	make_plotly_chart('2학년')
  
 with right_01:
 	# 학년 학급별 현황 그래프로 나타내기 
 	right_01.write('### 3학년 학급별 현황')
-
 	make_plotly_chart('3학년')
 
 
@@ -222,19 +205,16 @@ left_02, mid_02, right_02 = st.columns(3)
 with left_02:
 	# 학년 학급별 현황 그래프로 나타내기 
 	left_02.write('### 4학년 학급별 현황')
-
 	make_plotly_chart('4학년')
  
 with mid_02:
 	# 학년 학급별 현황 그래프로 나타내기 
 	mid_02.write('### 5학년 학급별 현황')
-
 	make_plotly_chart('5학년')
  
 with right_02:
 	# 학년 학급별 현황 그래프로 나타내기 
 	right_02.write('### 6학년 학급별 현황')
-
 	make_plotly_chart('6학년')
 
 
