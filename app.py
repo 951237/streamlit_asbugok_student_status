@@ -163,26 +163,42 @@ def df_query(p_grade):
 	df_gr = df_gr[['반','남','여']]
 	return df_gr
 
-# 2번째 단락 - 1, 2, 3학년 현황
-left_01, mid_01, right_01 = st.columns(3)
-
-with left_01:
-	# 학년 인원 그래프로 나타내기 
-	left_01.write('### 1학년 학급별 현황')
-
-	df_1gr = df_query('1학년')
+def make_plotly_chart(p_gr):
+	df_query = df_query(p_gr)
 
 	# 수평 바그래프
-	fig_1gr_student = px.bar(
-		df_1gr,
+	fig = px.bar(
+		df_query,
 		y = '반',
 		x = ['남','여'],
 		orientation='h',
 		# color = '반',
 		template="plotly_white"
 	)
-	fig_1gr_student.update_layout(barmode='stack', xaxis={'categoryorder':'total descending'})  # 값 정렬
-	st.plotly_chart(fig_1gr_student, use_container_width=True)
+	fig.update_layout(barmode='stack', xaxis={'categoryorder':'total descending'})  # 값 정렬
+	st.plotly_chart(fig, use_container_width=True)
+
+# 2번째 단락 - 1, 2, 3학년 현황
+left_01, mid_01, right_01 = st.columns(3)
+
+with left_01:
+	# 학년 인원 그래프로 나타내기 
+	left_01.write('### 1학년 학급별 현황')
+	make_plotly_chart('1학년')
+ 
+	# df_1gr = df_query('1학년')
+
+	# # 수평 바그래프
+	# fig_1gr_student = px.bar(
+	# 	df_1gr,
+	# 	y = '반',
+	# 	x = ['남','여'],
+	# 	orientation='h',
+	# 	# color = '반',
+	# 	template="plotly_white"
+	# )
+	# fig_1gr_student.update_layout(barmode='stack', xaxis={'categoryorder':'total descending'})  # 값 정렬
+	# st.plotly_chart(fig_1gr_student, use_container_width=True)
  
 with mid_01:
 	# 학년 학급별 현황 그래프로 나타내기 
