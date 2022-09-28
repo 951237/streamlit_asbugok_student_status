@@ -128,8 +128,8 @@ def make_list_by_date(p_file):
 result = []
 lst_date = [] 	# 엑셀파일 이름 모을 리스트
 for i in lst_xlsx:
-    df, name_date = make_list_by_date(i)
-    result.append(df)
+    df_temp, name_date = make_list_by_date(i)
+    result.append(df_temp)
     lst_date.append(name_date)
 df_result = pd.concat(result)
 df_result['날짜'] = lst_date
