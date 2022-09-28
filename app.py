@@ -243,3 +243,4 @@ df_result.columns.name = None
 df_result = df_result.set_index('날짜')
 
 st.line_chart(df_result, use_container_width=True)
+st.bar_chart(df_result, use_container_width=True)
