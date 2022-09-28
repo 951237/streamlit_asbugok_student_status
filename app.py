@@ -219,7 +219,7 @@ with right_02:
 
 
 # 5번째 단락 - 인구피라미드 (1학년부터 6학년까지)
-
+st.write('## 재적인원 추세 그래프')
 
 def make_list_by_date(p_file):
     name_date = p_file.split('.')[0]
@@ -242,4 +242,4 @@ df_result['날짜'] = lst_date
 df_result.columns.name = None
 df_result = df_result.set_index('날짜')
 
-st.line_chart(df_result)
+st.line_chart(df_result, use_container_width=True)
