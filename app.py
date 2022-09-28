@@ -112,6 +112,32 @@ with right_column:
     
 st.markdown("---")
 
+# 추세선 그래프
+st.write('## 재적인원 추세 그래프')
+
+def make_list_by_date(p_file):
+    name_date = p_file.split('.')[0]		# 파일에서 확장자 앞 이름 분리
+    df = get_excelfile(p_file).ffill()
+
+    df_0927 = df[['학년', '합계']]
+    t_0927 = df_0927.groupby('학년').sum()
+    test_t = t_0927.T.reset_index()
+    test_t = test_t[['1학년', '2학년', '3학년', '4학년', '5학년', '6학년']]
+    return test_t, name_date	# 1~6학년의 인원과 날짜 데이터를 반환
+
+result = []
+lst_date = [] 	# 엑셀파일 이름 모을 리스트
+for i in lst_xlsx:
+    df, name_date = make_list_by_date(i)
+    result.append(df)
+    lst_date.append(name_date)
+df_result = pd.concat(result)
+df_result['날짜'] = lst_date
+df_result.columns.name = None
+df_result = df_result.set_index('날짜')
+
+st.line_chart(df_result, use_container_width=True)
+
 
 # 첫번째 단락
 left, right = st.columns([3,2])
@@ -219,28 +245,4 @@ with right_02:
 
 
 # 5번째 단락 - 인구피라미드 (1학년부터 6학년까지)
-st.write('## 재적인원 추세 그래프')
 
-def make_list_by_date(p_file):
-    name_date = p_file.split('.')[0]
-    df = get_excelfile(p_file).ffill()
-
-    df_0927 = df[['학년', '합계']]
-    t_0927 = df_0927.groupby('학년').sum()
-    test_t = t_0927.T.reset_index()
-    test_t = test_t[['1학년', '2학년', '3학년', '4학년', '5학년', '6학년']]
-    return test_t, name_date
-
-result = []
-lst_date = []
-for i in lst_xlsx:
-    df, name_date = make_list_by_date(i)
-    result.append(df)
-    lst_date.append(name_date)
-df_result = pd.concat(result)
-df_result['날짜'] = lst_date
-df_result.columns.name = None
-df_result = df_result.set_index('날짜')
-
-st.line_chart(df_result, use_container_width=True)
-st.bar_chart(df_result, use_container_width=True)
