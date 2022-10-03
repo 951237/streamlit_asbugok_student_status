@@ -4,11 +4,6 @@ import plotly.express as px
 import streamlit as st
 import matplotlib.pyplot as plt
 
-# 할일
-# TODO:파일의 선택하기
-# TODO:그래프 추가 (원그래프, )
-
-
 # streamlit 페이지 생성
 st.set_page_config(
     page_title='Bugok Class Dashboard',		# 브라우저 탭 제목
@@ -20,7 +15,7 @@ st.set_page_config(
 def read_xlsx_files():
 	path = "./data"
 	file_list = os.listdir(path)
-	lst_xlsx = [file for file in file_list if file.endswith(".xlsx")]
+	lst_xlsx = [file for file in file_list if file.endswith(".xlsx")]	# 폴더내 확장자가 엑셀파일 인것을 리스트에 담기
 	return lst_xlsx
 	
 
@@ -47,13 +42,14 @@ def get_excelfile(p_file):
 	return df
 
 lst_xlsx = read_xlsx_files()
-lst_xlsx.sort()
-default_ix = lst_xlsx[-1]
+lst_xlsx.sort()		# 리스트 정렬하기
+default_ix = lst_xlsx[-1]	# 셀렉박스 기본값을 최신파일로 설정
 
 # st.dataframe(df)
 
 # --- 사이드바 생성하기 ---
 st.sidebar.header("Please Filter Here:")	# 사이드바 헤더(제목)
+
 # 파일 선택하기 
 file_xlsxs = st.sidebar.selectbox(
 	"Select data file:",
@@ -63,8 +59,8 @@ file_xlsxs = st.sidebar.selectbox(
 
 # 데이터프레임 만들기
 df = get_excelfile(file_xlsxs).ffill()	# 데이터 프레임 생성
-str_date = file_xlsxs.split('.')[0]
-str_now = f'{str_date[:2]}.{str_date[2:4]}.{str_date[4:]}'
+str_date = file_xlsxs.split('.')[0]		# 파일이름에서 날짜 추출
+str_now = f'{str_date[:2]}.{str_date[2:4]}.{str_date[4:]}' 	# 날짜의 형식 만들기
 
 # 학년 선택 
 # 형식 st.sidebar.multiselect("안내문구", 리스트)
@@ -120,21 +116,23 @@ def make_list_by_date(p_file):
     df = get_excelfile(p_file).ffill()
 
     df_0927 = df[['학년', '합계']]
-    t_0927 = df_0927.groupby('학년').sum()
-    test_t = t_0927.T.reset_index()
+    t_0927 = df_0927.groupby('학년').sum()	# 학년으로 그룹짓기
+    test_t = t_0927.T.reset_index()		# 행열 변환하기
     test_t = test_t[['1학년', '2학년', '3학년', '4학년', '5학년', '6학년']]
     return test_t, name_date	# 1~6학년의 인원과 날짜 데이터를 반환
 
 result = []
 lst_date = [] 	# 엑셀파일 이름 모을 리스트
+
+# 파일의 리스트를 이용해서 데이터를 추출하고 하나의 데이터 프레임으로 만들기
 for i in lst_xlsx:
     df_temp, name_date = make_list_by_date(i)
     result.append(df_temp)
     lst_date.append(name_date)
-df_result = pd.concat(result)
-df_result['날짜'] = lst_date
+df_result = pd.concat(result)		# 리스트의 데이터를 하나의 데이터 프레임으로 생성하기
+df_result['날짜'] = lst_date		# 날짜 데이터를 칼럼으로 넣기
 df_result.columns.name = None
-df_result = df_result.set_index('날짜')
+df_result = df_result.set_index('날짜')	# 날짜를 인덱스로 설정
 
 st.line_chart(df_result, use_container_width=True)
 
