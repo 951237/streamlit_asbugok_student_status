@@ -11,7 +11,7 @@ st.set_page_config(
     layout = "wide"							# 레이아웃
     )
 
-# 폴더내에 
+# 폴더내에 파일 읽어오기
 def read_xlsx_files():
 	path = "./data"
 	file_list = os.listdir(path)
