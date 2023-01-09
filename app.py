@@ -61,26 +61,6 @@ df = get_excelfile(file_xlsxs).ffill()	# 데이터 프레임 생성
 str_date = file_xlsxs.split('.')[0]		# 파일이름에서 날짜 추출
 str_now = f'{str_date[:2]}.{str_date[2:4]}.{str_date[4:]}' 	# 날짜의 형식 만들기
 
-# ------------------------- 학년 선택 
-# 형식 st.sidebar.multiselect("안내문구", 리스트)
-# grade = st.sidebar.multiselect(
-# 	"Select the Grade:",
-# 	options = df['학년'].unique(),
-# 	default = df['학년'].unique()
-# )
-
-# ------------------------- 학급 선택
-# class_num = st.sidebar.multiselect(
-# 	"Select the Class_num:",
-# 	options = df['반'].unique(),
-# 	default = df['반'].unique()
-# )
-
-# 데이터 프레임 칼럼 이름으로 설정하기
-# df_selection = df.query(
-# 	"학년 == @grade & 반 == @class_num"		# '학년'은 데이터프레임 칼럼
-# )
-
 def main_page():
 	# --- 메인 페이지 ---
 	st.write(f"### {str_now} 현재")
