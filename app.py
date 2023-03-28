@@ -27,7 +27,7 @@ def get_excelfile(p_file):
 		sheet_name="실시간 학생수",
 		skiprows=1,
 		usecols="A:D",
-		nrows=39
+		nrows=37
 	)
 
 	# '반'칼럼 nan값 삭제
